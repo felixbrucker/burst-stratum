@@ -1,15 +1,19 @@
 {
   "name": "burst-stratum",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Slightly modified stratum protocol for burst mining.",
   "keywords": [
     "burst",
     "stratum",
-    "mining"
+    "mining",
+    "poc"
   ],
   "repository": "https://github.com/felixbrucker/burst-stratum.git",
   "bugs": "https://github.com/felixbrucker/burst-stratum/issues",
   "license": "GPL-3.0",
+  "dependencies": {
+    "uuid": "^8.1.0"
+  },
   "engines": {
     "node": "^10.0.0"
   }
