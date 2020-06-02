@@ -91,6 +91,80 @@ const { BurstStratumClient } = require('burst-stratum');
 })();
 ```
 
+## Protocol
+
+### Subscribe to miningInfo notifications (Client -> Server)
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 123,
+    "method": "mining.subscribe",
+    "params": [
+        "BHD",
+        "BURST"
+    ]
+}
+
+{
+    "jsonrpc": "2.0",
+    "id": 123,
+    "result": true
+}
+```
+
+### Submit a nonce (Client -> Server)
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 123,
+    "method": "mining.submit",
+    "params": {
+        "coin": "BHD",
+        "submission": {
+            "height": 330900,
+            "accountId": "12312134123123",
+            "nonce": "32462454345354",
+            "deadline": 23213232
+        },
+        "options": {
+            "minerName": "Miner 1",
+            "accountName": "My Name",
+            "payoutAddress": "33fKEwAHxVwnrhisREFdSNmZkguo76a2ML",
+            "userAgent": "Foxy-Miner 1.13.0",
+            "capacity": 1337,
+            "distributionRatio": "0-100"
+        }
+    }
+}
+
+{
+    "jsonrpc": "2.0",
+    "id": 123,
+    "result": {
+        "success": true,
+        "deadline": 1337
+    }
+}
+```
+
+### New miningInfo notifications (Server -> Client)
+```json
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "method": "mining.notify",
+    "params": {
+        "coin": "BHD",
+        "miningInfo": {
+            "generationSignature": "6b914699608eede35bbecac30414e6e2ee282601b4410c6f6301988647753faa",
+            "baseTarget": 23455,
+            "height": 330900,
+            "targetDeadline": 31536000
+        }
+    }
+}
+```
+
 ## License
 
 GNU GPLv3 (see [LICENSE](https://github.com/felixbrucker/burst-stratum/blob/master/LICENSE))
