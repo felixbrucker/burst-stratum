@@ -165,6 +165,23 @@ const { BurstStratumClient } = require('burst-stratum');
 }
 ```
 
+### Keepalive (Ping/Pong)
+Both client and server must respond to a `ping` message with a `pong` message
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "method": "ping"
+}
+
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "method": "pong"
+}
+```
+
 ## License
 
 GNU GPLv3 (see [LICENSE](https://github.com/felixbrucker/burst-stratum/blob/master/LICENSE))
