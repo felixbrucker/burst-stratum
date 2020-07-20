@@ -1,6 +1,6 @@
 {
   "name": "burst-stratum",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Slightly modified stratum protocol for burst mining.",
   "keywords": [
     "burst",
